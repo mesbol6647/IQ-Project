@@ -15,7 +15,7 @@ import Navbar from "../components/Navbar"
 const AppRouter =()=>{
     return(
         <>
-        <Navbar/>    
+        {/* <Navbar/>     */}
         <Routes>           
             <Route path="/" element={<Login/>}/>           
             <Route path="/dashboard" element={<PrivateRouter/>}>

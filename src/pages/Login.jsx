@@ -20,8 +20,8 @@ const Login = () => {
       <div className="loginDiv">
         <div className="h-[500px] w-11/12 sm:w-[475px] bg-white rounded-[20px] p-5 flex justify-between flex-col text-center">
           <div className="flex justify-center items-center mt-2 gap-2">
-            <span className="w-[6px] bg-blue-500 h-[39px]"></span>
-            <h1 className="text-[22px] sm:text-[32px] font-montserrat font-[700] uppercase">
+            <span className="w-[6px]  h-[39px]"></span>
+            <h1 className="text-[22px] sm:text-[32px] font-montserrat font-[700] uppercase ">
               Code Brakers
             </h1>
           </div>
