@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 
@@ -12,6 +12,18 @@ const QuestionAcc = ({title, text, handleRemove}) => {
         let newActive = clicked.active === 1 ? 0 : 1;
         setClicked({...clicked, active : newActive});
     }
+
+
+    // soru işaretinden sonra gelen yazı
+    const questionMark = (text) => {
+        const questionIndex = text.indexOf('?');
+        if (questionIndex !== -1) {
+          const beforeQuestion = text.slice(0, questionIndex + 1);
+          const afterQuestion = text.slice(questionIndex + 1);
+          return `${beforeQuestion}\n${afterQuestion}`;
+        }
+        return text;
+      };
    
 
 
@@ -20,8 +32,8 @@ const QuestionAcc = ({title, text, handleRemove}) => {
     duration-100 group ${clicked.active === 1 ? 'is-active bg-white' : ''}`}
     >
         <div className=" w-full flex items-center">
-            <div className="w-full  duration-500 group-[.is-active]:font-bold">
-            {title} 
+            <div className="w-full duration-500 group-[.is-active]:font-bold " style={{ whiteSpace: 'pre-line' }}>
+            {questionMark(title)}
             </div>
             <div className="bg-[#5B0888] text-white mx-3 p-1" onClick={handleRemove}>                
                  <FaTrashAlt />
@@ -37,8 +49,8 @@ const QuestionAcc = ({title, text, handleRemove}) => {
             </div>
         </div>
         
-        <div className="overflow-hidden  max-h-0  duration-100 group-[.is-active]:max-h-[100px]">
-            {text}
+        <div className="overflow-hidden  max-h-0  duration-100 group-[.is-active]:max-h-[5000px]" style={{ whiteSpace: 'pre-line' }}>
+        {questionMark(text)}
             
         </div>
     </div>
