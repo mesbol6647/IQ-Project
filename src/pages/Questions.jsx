@@ -5,17 +5,7 @@ import axios from 'axios';
 
 
 const Questions = () => {
-  // const [list, setList] = useState([
-  //   {
-  //     question: "What's your name ?",
-  //     answer: "My name is Lun Dev",
-  //     active: 1
-  //   },
-  //   {
-  //     question: "What do you do ?",
-  //     answer: "I'm FullStack Deveoper",
-  //   }
-  // ]);
+ 
 
   const url =process.env.REACT_APP_API_URL;
   const [data, setData]=useState([]);
@@ -46,6 +36,12 @@ const Questions = () => {
     }
     getQuestions();
   };
+  // filtered
+  const filteredQuestions = data.filter((item) =>
+    item.question.toLowerCase().includes(search.toLowerCase())
+  );
+
+
 
 
 
@@ -57,7 +53,7 @@ const Questions = () => {
         {/* <div className='bg-[#f2f2f2] h-screen flex justify-center items-center mt-6'> */}
     <div className='list mt-6'>
     {
-        data.map((item, index) => (
+        filteredQuestions.map((item, index) => (
           <QuestionAcc 
           key={index}
           title={item.question}
