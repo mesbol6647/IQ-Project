@@ -1,3 +1,8 @@
+import { GoChevronDown } from "react-icons/go";
+import { Button } from "react-bootstrap";
+
+
+
 
 const AddQuestionForm = ({ formData,handleChange,handleSubmit,text }) => {
   
@@ -37,10 +42,11 @@ const AddQuestionForm = ({ formData,handleChange,handleSubmit,text }) => {
             />
           </div>
   
-          <div className="text-center">
-          <button type="submit" className="add-to-cart btn btn-success btn-sm">
+          <div className="text-center"><GoChevronDown />
+          <Button type="submit" className="add-to-cart btn btn-success btn-sm">
               <i className="fa-solid fa-cart-plus me-2"></i>Save To {text} Question
-            </button>
+              
+            </Button>
           </div>
         </form>
         </div>

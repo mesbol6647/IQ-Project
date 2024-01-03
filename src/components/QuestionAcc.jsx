@@ -1,5 +1,7 @@
 import React, {useState} from "react";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
+import { FaArrowAltCircleDown } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 
 const QuestionAcc = ({title, text, handleRemove}) => {
     const [clicked, setClicked] = useState(0);
@@ -14,26 +16,28 @@ const QuestionAcc = ({title, text, handleRemove}) => {
 
 
   return (
-    <div className={`w-full p-5 bg-[#e9e9e9] border border-[#c9c6c655] rounded-md mb-5 
-    duration-500 group ${clicked.active === 1 ? 'is-active bg-white' : ''}`}
+    <div className={`w-full p-5 bg-[#E5CFF7] border border-[#c9c6c655] rounded-md mb-5 
+    duration-100 group ${clicked.active === 1 ? 'is-active bg-white' : ''}`}
     >
-        <div className=" w-full  flex items-center">
+        <div className=" w-full flex items-center">
             <div className="w-full  duration-500 group-[.is-active]:font-bold">
             {title} 
             </div>
-            <div className="text-xl rotate-90 
-            duration-500 group-[.is-active]:rotate-[270deg]"
+            <div className="bg-[#5B0888] text-white mx-3 p-1" onClick={handleRemove}>                
+                 <FaTrashAlt />
+            </div>                
+              
+            <div className="text-xl bg-[#5B0888] text-white p-0.5
+            duration-100 group-[.is-active]:rotate-[180deg]"
              onClick={handleToggleActive}
-            > *
-            <button 
-                className="btn btn-danger btn-sm remove-product"
-                onClick={handleRemove}>
-                <i className="fa-solid fa-trash-can me-2"></i>
-              </button>
+            > 
+             <FaArrowAltCircleDown />
+           
                 
             </div>
         </div>
-        <div className="overflow-hidden  max-h-0  duration-500 group-[.is-active]:max-h-[100px]">
+        
+        <div className="overflow-hidden  max-h-0  duration-100 group-[.is-active]:max-h-[100px]">
             {text}
             
         </div>
