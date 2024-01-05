@@ -7,25 +7,26 @@ import { AuthContext } from "../context/AuthProvider";
 const navigation = [
   {
     title: "Home",
-    path: "/dashboard",
+    path: "/",
   },
   {
     title: "Questions",
-    path: "/dashboard/questions",
+    path: "/questions",
   },
   {
     title: "AddQuestions",
-    path: "/dashboard/addquestions",
+    path: "/addquestions",
   },
   {
     title: "About",
-    path: "/dashboard/about",
+    path: "/about",
   },
 ];
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const { logout } = useContext(AuthContext);
+  const {login}=useContext(AuthContext)
   const location = useLocation();//!useLocation hook'u, geçerli konumu bir nesne olarak döndürür. Bu nesne, routerdan gelen konum yolunu, konum parametrelerini ve konum durumunu içerir.
   console.log(location);
 
@@ -77,6 +78,7 @@ const Navbar = () => {
             ))}
           </ul>
           <div className="flex-1 gap-x-6 items-center justify-end mt-6 space-y-6 md:flex md:space-y-0 md:mt-0">
+            
             <NavLink
               to="/"
               onClick={logout}

@@ -5,31 +5,33 @@ import Home from "../pages/Home"
 import Questions from "../pages/Questions"
 import AddQuestions from "../pages/AddQuestions"
 import Footer from "../components/Footer"
-import QuestionDetails from "../pages/QuestionDetails"
+
 import About from "../pages/About"
 import NotFound from "../pages/NotFound"
 import React from "react"
 import Navbar from "../components/Navbar"
+import { LoginContext } from "../context/LoginContext"
 
 
 const AppRouter =()=>{
     return(
-        <>
-        {/* <Navbar/>     */}
-        <Routes>           
-            <Route path="/" element={<Login/>}/>           
-            <Route path="/dashboard" element={<PrivateRouter/>}>
-                <Route path="" element={<Home/>}/>
-                <Route path="/dashboard/questions" element={<Questions/>}/>
-                <Route path="questions/:detail" element={<QuestionDetails/>}/>
-                <Route path="/dashboard/addquestions" element={<AddQuestions/>}/>
-                <Route path="/dashboard/about" element={<About/>}/>    
-            </Route>
-                    
+        <LoginContext.Provider>
+
+        <Navbar/>     
+        <Routes>
+            <Route path="/" element={<Home/>}/>      
             <Route path="*" element={<NotFound/>}/>
+            <Route path="/login" element={<Login/>}/>  
+            <Route path="/about" element={<About/>}/>         
+            <Route path="/" element={<PrivateRouter/>}>               
+                <Route path="questions" element={<Questions/>}/>                
+                <Route path="addquestions" element={<AddQuestions/>}/>           
+            </Route>
+                 
+            
         </Routes>
         <Footer/>
-        </>
+        </LoginContext.Provider>  
     )
 }
 export default AppRouter

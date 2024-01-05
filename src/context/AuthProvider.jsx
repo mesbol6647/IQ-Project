@@ -10,7 +10,9 @@ const AuthProvider = ({ children }) => {
 
   const login = (info) => {
     setUser(info);
-    navigate("/dashboard");
+    // navigate("/dashboard/questions");
+    navigate(-1);
+
   };
 
   const logout = () => {
